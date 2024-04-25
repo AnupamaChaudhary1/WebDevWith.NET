@@ -19,3 +19,13 @@ collegemonitor - https://collegemonitor.com
 1. INT - all code changes, Integration environment (https://int.collegemonitor.com)
 1. UAT - PD/TPO/BA user acceptance testing (https://uat.collegemonitor.com)
 1. PROD -production environment  (https://collegemonitor.com)
+
+# College monitor requirements
+
+## entities/tables/models
+1. class - Id, title, start,duration,details
+1. course - id, name,  textbook,credithours, syllabus 
+1. student - id, name, address, email, program, semestar
+
+> coures has multiple classes( one to many)
+> student may enroll on multiple courses and a coures can be enrolled by multiple students(many to many)
