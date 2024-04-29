@@ -29,3 +29,8 @@ collegemonitor - https://collegemonitor.com
 
 > coures has multiple classes( one to many)
 > student may enroll on multiple courses and a coures can be enrolled by multiple students(many to many)
+
+## cw
+1. on courses page numbering 1, 2 -----
+2. for each course, there should be 2 buttons edit and deletes
+3. when edit clicked edit page course dhould be displayed with course data prepopulated
