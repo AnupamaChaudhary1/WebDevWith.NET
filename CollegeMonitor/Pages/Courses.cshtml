@@ -33,7 +33,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">Textbook</th>
       <th scope="col">Credit Hours</th>
@@ -43,7 +43,7 @@
     @foreach(var course in Model.Courses)
     {
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">@course.Id</th>
             <td><a href="/course/@course.Id">@course.Name</a></td>
             <td>@course.TextBook</td>
             <td>@course.CreditHrs</td>           
