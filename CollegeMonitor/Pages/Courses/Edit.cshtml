@@ -1,0 +1,25 @@
+@page "/courses/edit/{Id:int}"
+@model EditCourseModel
+
+<h2>Edit Course</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Course.Id" />
+    <div class="mb-3">
+        <label asp-for="Course.Name" class="control-label"></label>
+        <input asp-for="Course.Name" class="form-control" />
+        <span asp-validation-for="Course.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Course.TextBook" class="control-label"></label>
+        <input asp-for="Course.TextBook" class="form-control" />
+        <span asp-validation-for="Course.TextBook" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Course.CreditHrs" class="control-label"></label>
+        <input asp-for="Course.CreditHrs" class="form-control" />
+        <span asp-validation-for="Course.CreditHrs" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/courses">Cancel</a>
+</form>
