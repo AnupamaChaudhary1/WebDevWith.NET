@@ -1,3 +1,4 @@
+using System.Formats.Asn1;
 using Microsoft.Net.Http.Headers;
 
 public class Session
@@ -9,3 +10,17 @@ public class Session
     public float DurationInHours { get; set; }
 
 }
+
+// class A {
+// }
+// class B{
+//     //A a=new A(); //tight coupling/ hard
+//     //dependency injection
+//     //constuctor injection
+//     A a;
+//     private A a1;
+
+//     public B(A a2){
+//         a1 = a2;
+//     }
+// }
