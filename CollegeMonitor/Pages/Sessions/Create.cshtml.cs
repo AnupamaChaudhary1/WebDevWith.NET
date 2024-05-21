@@ -16,19 +16,22 @@ namespace CollegeMonitor.Pages_Sessions
         {
             _context = context;
         }
+        [BindProperty]
+        public Session Session { get; set; } = default!;
+        public List<Session> Sessions { get; set; }
+        public List<SelectListItem> Courses { get; set; }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
            
-            Courses= _context.Courses
-            .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
-            .ToList();
+            // Courses= _context.Courses
+            // .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
+            // .ToList();
+            HttpClient http=new HttpClient();
+            Sessions = await http.GetFromJsonAsync<List<Session>>("http://localhost:5237/sessions");
             return Page();
         }
 
-        [BindProperty]
-        public Session Session { get; set; } = default!;
-        public List<SelectListItem> Courses { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

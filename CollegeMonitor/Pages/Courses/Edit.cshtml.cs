@@ -2,12 +2,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 public class EditCourseModel : PageModel
 {
+    
     [BindProperty]
     public Course Course { get; set; }
-    public void OnGet(int id)
+    public List<Course> Courses { get; set; }
+
+    public async Task OnGet(int id)
     {
-        CollegeDbContext db= new();
-        Course=db.Courses.Find(id);
+        // CollegeDbContext db= new();
+        // Course=db.Courses.Find(id);
+        HttpClient http=new HttpClient();
+        //Courses = await http.GetFromJsonAsync<List<Course>>("http://localhost:5237/courses/{id}");
+        Courses = await http.GetFromJsonAsync<List<Course>>("http://localhost:5237/courses");
+        
     }
 
     public IActionResult OnPost()

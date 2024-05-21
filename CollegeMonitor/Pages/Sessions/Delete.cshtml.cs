@@ -19,6 +19,7 @@ namespace CollegeMonitor.Pages_Sessions
 
         [BindProperty]
         public Session Session { get; set; } = default!;
+        public List<Session> Sessions { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -26,13 +27,15 @@ namespace CollegeMonitor.Pages_Sessions
             {
                 return NotFound();
             }
+            HttpClient http = new HttpClient();
+            Sessions = await http.GetFromJsonAsync<List<Session>>("http://localhost:5237/sessions");
 
             var session = await _context.Sessions.FirstOrDefaultAsync(m => m.Id == id);
 
             if (session == null)
             {
                 return NotFound();
-            }
+            }            
             else
             {
                 Session = session;
