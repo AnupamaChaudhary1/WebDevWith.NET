@@ -6,6 +6,6 @@ public class CollegeDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=CollegeMonitor.db");
+        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CollegeMonitor;Trusted_Connection=True;");
     }
 }

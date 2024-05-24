@@ -24,9 +24,9 @@ namespace CollegeMonitor.Pages_Sessions
         public async Task<IActionResult> OnGetAsync()
         {
            
-            // Courses= _context.Courses
-            // .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
-            // .ToList();
+            Courses= _context.Courses
+            .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
+            .ToList();
             HttpClient http=new HttpClient();
             Sessions = await http.GetFromJsonAsync<List<Session>>("http://localhost:5237/sessions");
             return Page();
